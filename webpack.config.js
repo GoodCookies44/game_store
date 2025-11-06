@@ -1,16 +1,17 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: './src/index.tsx',
 
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx"],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
 
   module: {
@@ -18,25 +19,31 @@ module.exports = {
       {
         test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          'style-loader',
+          {loader: 'css-loader', options: {modules: true}},
+          'postcss-loader',
+        ],
       },
     ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: './index.html',
     }),
+    new HtmlWebpackPlugin({template: './index.html'}),
+    new Dotenv(),
   ],
 
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
 
   devServer: {
-    static: "./dist",
+    static: './dist',
     port: 3000,
     open: true,
   },

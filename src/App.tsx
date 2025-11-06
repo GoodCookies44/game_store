@@ -1,9 +1,18 @@
+// Modules
 import React from 'react'
+// Components
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage'
+// Styles
+import './App.module.css';
 
 function App() {
+  
+  
   return (
     <div>
-      <h1>Магазин игр</h1>
+      <Header/>
+      <HomePage/>
     </div>
   )
 }
