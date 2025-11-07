@@ -1,61 +1,116 @@
-import React from "react";
+import React from 'react';
+
 import {
   Anchor,
+  Autocomplete,
+  Button,
+  Card,
   ColorSchemeScript,
-  createTheme,
   MantineColorsTuple,
   MantineProvider,
-} from "@mantine/core";
+  TextInput,
+  createTheme,
+} from '@mantine/core';
 
 const yellow: MantineColorsTuple = [
-  "#fff7e0",
-  "#ffeecc",
-  "#fcdb9d",
-  "#f9c869",
-  "#f7b538", // Main
-  "#f6ac21",
-  "#f6a70e",
-  "#db9200",
-  "#c38100",
-  "#a96e00",
+  '#fff7e0',
+  '#ffeecc',
+  '#fcdb9d',
+  '#f9c869',
+  '#f7b538', // Dark 4
+  '#f6ac21',
+  '#f6a70e',
+  '#db9200', // Light 7
+  '#c38100',
+  '#a96e00',
 ];
 const light_dark: MantineColorsTuple = [
-  "#fef2f5",
-  "#eae6e7", // Light
-  "#cdcdcd",
-  "#b2b2b2",
-  "#9a9a9a",
-  "#8b8b8b",
-  "#848484",
-  "#6e6e6e", // Dark
-  "#676465",
-  "#5e5457",
+  '#f4f4f6',
+  '#e5e5e5',
+  '#c8c8cb', // Light 2
+  '#aaaab2', // Light_back 3
+  '#90909c',
+  '#807f8f',
+  '#77778a',
+  '#666577',
+  '#19191c', // Dark 8
+  '#101014', // Dark_back 9
 ];
 
 const theme = createTheme({
-  fontFamily: "Comfortaa, sans-serif",
-
   colors: {
     yellow,
     light_dark,
   },
 
-  primaryColor: "yellow",
+  primaryColor: 'yellow',
+  primaryShade: { light: 7, dark: 4 },
+  autoContrast: true,
 
-  shadows: {
-    md: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-    xl: "0px 8px 24px rgba(0, 0, 0, 0.15)",
+  fontFamily: 'Comfortaa, sans-serif',
+
+  fontSizes: {
+    xs: '0.75rem', // 12px
+    sm: '0.875rem', // 14px
+    md: '1rem', // 16px
+    lg: '1.125rem', // 18px
+    xl: '1.25rem', // 20px
+  },
+
+  spacing: {
+    xs: '0.5rem', // 8px
+    sm: '0.75rem', // 12px
+    md: '1rem', // 16px
+    lg: '1.5rem', // 24px
+    xl: '2rem', // 32px
   },
 
   radius: {
-    md: "8px",
-    lg: "12px",
+    xs: '0.5rem', // 8px
+    sm: '0.75rem', // 12px
+    md: '1rem', // 16px
+    lg: '1.5rem', // 24px
+    xl: '2rem', // 32px
+  },
+  defaultRadius: 'xs',
+
+  breakpoints: {
+    mobile_max: '48rem', // 768px
+    tablet_max: '62rem', // 992px
+    desktop: '75em', // 1200px
+  },
+
+  shadows: {
+    center_sm: '0 0 7px 0 rgba(0, 0, 0, 0.75)',
   },
 
   components: {
     Anchor: Anchor.extend({
       defaultProps: {
-        underline: "hover",
+        underline: 'hover',
+      },
+    }),
+
+    Button: Button.extend({
+      defaultProps: {
+        radius: 'xs',
+        variant: 'outline',
+        autoContrast: true,
+        color: yellow[4],
+      },
+    }),
+
+    Card: Card.extend({
+      defaultProps: {
+        shadow: 'lg',
+        radius: 'lg',
+        withBorder: true,
+      },
+    }),
+
+    TextInput: TextInput.extend({
+      defaultProps: {
+        radius: 'md',
       },
     }),
   },

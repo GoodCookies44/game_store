@@ -1,0 +1,36 @@
+[data-mantine-color-scheme='light'] {
+  --content-bg: var(--mantine-color-light_dark-2);
+}
+
+[data-mantine-color-scheme='dark'] {
+  --content-bg: var(--mantine-color-light_dark-8);
+}
+
+[data-variant='default'] {
+  background-color: var(--content-bg);
+}
+
+body {
+  background: light-dark(
+    var(--mantine-color-light_dark-3),
+    var(--mantine-color-light_dark-9)
+  );
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    padding: 0 5%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    padding: 0 10%;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0 15%;
+  }
+}

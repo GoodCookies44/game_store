@@ -1,10 +1,7 @@
-// Modules
-import React from "react";
-// Components
-import Header from "./components/Header/Header";
-import HomePage from "./pages/HomePage/HomePage";
-// Styles
-import "./App.module.css";
+import React from 'react';
+
+import Header from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (

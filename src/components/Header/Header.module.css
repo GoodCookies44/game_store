@@ -1,4 +1,29 @@
-.header__disclaimer {
+.disclaimer {
   display: flex;
   justify-content: center;
+
+  width: 100%;
+
+  border-radius: 0 0 var(--mantine-radius-xs) var(--mantine-radius-xs);
+
+  background: var(--content-bg);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  padding: 0.5rem;
+
+  border-radius: var(--mantine-radius-xs);
+
+  background: var(--content-bg);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.searh__input input {
+  background-color: var(--content-bg);
 }
