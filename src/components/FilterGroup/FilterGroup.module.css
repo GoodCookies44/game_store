@@ -1,0 +1,37 @@
+/* Заголовок */
+[mantine-Title-root] {
+  margin: 0 0 1rem;
+}
+
+/* Чипы */
+[data-mantine-color-scheme='light'] [class*='mantine-Chip-label'] {
+  background-color: var(--content-bg);
+  border-color: var(--mantine-color-light_dark-8);
+}
+
+[data-mantine-color-scheme='light']
+  [class*='mantine-Chip-label']:not([data-disabled]):hover {
+  background-color: var(--content-bg);
+  border-color: var(--mantine-color-yellow-7);
+}
+
+[data-mantine-color-scheme='dark'] [class*='mantine-Chip-label'] {
+  background-color: var(--content-bg);
+}
+
+[data-mantine-color-scheme='dark']
+  [class*='mantine-Chip-label']:not([data-disabled]):hover {
+  background-color: var(--content-bg);
+  border-color: var(--mantine-color-yellow-4);
+}
+
+.item {
+  background-color: var(--content-bg);
+}
+
+.title {
+  color: light-dark(
+    var(--mantine-color-light_dark-8),
+    var(--mantine-primary-color-4)
+  );
+}

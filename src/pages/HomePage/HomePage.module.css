@@ -1,0 +1,30 @@
+[class*='mantine-Tabs-list']::before {
+  display: none;
+}
+
+.nav,
+.container,
+.aside {
+  border-radius: var(--mantine-radius-xs);
+
+  background: var(--content-bg);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.nav {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.aside {
+  position: sticky;
+  top: 1rem;
+
+  width: 22rem;
+
+  padding: 1rem;
+}

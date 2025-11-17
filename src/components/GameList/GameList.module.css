@@ -1,0 +1,8 @@
+.mansory_container {
+  display: flex;
+  width: auto;
+}
+
+.mansory_column {
+  background-clip: padding-box;
+}

@@ -38,15 +38,10 @@ export default function Header() {
         </Title>
       </Box>
 
-      <Group
-        className={classes.container}
-        justify="space-between"
-        gap="xs"
-        px="sm"
-      >
+      <Group className={classes.container} justify="space-between" px="sm">
         <Title order={3}>GameStore</Title>
 
-        <Group justify="flex-end" gap="xs">
+        <Group justify="flex-end">
           <Autocomplete
             style={{
               '--input-bg': 'var(--content-bg)',
@@ -55,7 +50,7 @@ export default function Header() {
             placeholder="Поиск игр..."
             leftSection={<IconSearch size={16} />}
             flex={1}
-            maw={400}
+            maw={500}
             mx="xs"
           />
 

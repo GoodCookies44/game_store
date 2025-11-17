@@ -2,10 +2,11 @@ import React from 'react';
 
 import {
   Anchor,
-  Autocomplete,
   Button,
   Card,
+  Chip,
   ColorSchemeScript,
+  Group,
   MantineColorsTuple,
   MantineProvider,
   TextInput,
@@ -45,7 +46,6 @@ const theme = createTheme({
 
   primaryColor: 'yellow',
   primaryShade: { light: 7, dark: 4 },
-  autoContrast: true,
 
   fontFamily: 'Comfortaa, sans-serif',
 
@@ -108,9 +108,29 @@ const theme = createTheme({
       },
     }),
 
+    Group: Group.extend({
+      defaultProps: {
+        gap: 'xs',
+      },
+    }),
+
     TextInput: TextInput.extend({
       defaultProps: {
         radius: 'md',
+      },
+    }),
+
+    Chip: Chip.extend({
+      defaultProps: {
+        color: yellow[4],
+        variant: 'outline',
+        radius: 'xs',
+      },
+      styles: {
+        root: {
+          background: '--content-bg',
+          paddingInline: 'xs',
+        },
       },
     }),
   },

@@ -1,3 +1,37 @@
+/*Инпут поиска*/
+[data-mantine-color-scheme='light'] [class*='mantine-Input-input'] {
+  border-color: var(--mantine-color-light_dark-8);
+}
+
+[data-mantine-color-scheme='light']
+  [class*='mantine-Input-input']::placeholder {
+  color: var(--mantine-color-light_dark-8);
+}
+
+/* Кнопки входа/регистрации */
+[data-mantine-color-scheme='light'] [class*='mantine-Button-root'] {
+  border-color: var(--mantine-color-light_dark-8);
+  color: var(--mantine-color-light_dark-8);
+}
+
+[data-mantine-color-scheme='light'] [class*='mantine-Button-root']:hover,
+[data-mantine-color-scheme='light'] [class*='mantine-ActionIcon-root']:hover {
+  background-color: var(--content-bg);
+
+  border-color: var(--mantine-color-yellow-7);
+  color: var(--mantine-color-light_dark-8);
+}
+
+/* Кнопка смены темы */
+[data-mantine-color-scheme='light'] [class*='mantine-ActionIcon-root'] {
+  border-color: var(--mantine-color-light_dark-8);
+}
+
+/* Фон инпута и кнопок */
+[data-variant='default'] {
+  background-color: var(--content-bg);
+}
+
 .disclaimer {
   display: flex;
   justify-content: center;
