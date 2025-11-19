@@ -1,5 +1,5 @@
 declare module '*.module.css' {
-  const classes: { 
+  const classes: {
     readonly [key: string]: string;
   };
   export = classes;

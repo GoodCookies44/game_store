@@ -9,7 +9,7 @@
     "^@(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^../api/(.*)$",
-    "^../components/(.*)$", 
+    "^../components/(.*)$",
     "^../pages/(.*)$",
     "^./[^.]*$",
     "^.*\\.css$"

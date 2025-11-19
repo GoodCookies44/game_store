@@ -20,7 +20,7 @@ export default function FilterGroup({
   const dispatch = useDispatch();
   if (isLoading) {
     return (
-      <Box>
+      <Box component="section">
         <Title order={3} mt={0} mb="xs" mr={0} ml={0} className={classes.title}>
           {title}
         </Title>

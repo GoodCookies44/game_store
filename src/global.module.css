@@ -1,9 +1,17 @@
 [data-mantine-color-scheme='light'] {
   --content-bg: var(--mantine-color-light_dark-2);
+  --content-bg-dark: var(--mantine-color-light_dark-3);
+  --text-second-color: var(--mantine-color-light_dark-6);
+  --mantine-color-body: var(--content-bg);
+  --mantine-color-card: var(--content-bg);
 }
 
 [data-mantine-color-scheme='dark'] {
   --content-bg: var(--mantine-color-light_dark-8);
+  --content-bg-dark: var(--mantine-color-light_dark-9);
+  --text-second-color: var(--mantine-color-light_dark-6);
+  --mantine-color-body: var(--content-bg);
+  --mantine-color-card: var(--content-bg);
 }
 
 .gamesList {

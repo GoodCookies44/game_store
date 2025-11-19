@@ -4,6 +4,7 @@ export type Game = {
   background_image: string;
   rating: number;
   released: string;
+  added: number;
   genres: Genre[];
   tags: Tag[];
   platforms: {

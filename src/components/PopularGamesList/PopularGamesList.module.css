@@ -1,0 +1,21 @@
+.title {
+  color: light-dark(
+    var(--mantine-color-light_dark-8),
+    var(--mantine-primary-color-4)
+  );
+}
+
+.skeleton_container {
+  align-items: flex-start;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+
+  height: 40rem;
+
+  overflow-y: scroll;
+}

@@ -2,30 +2,13 @@ import React, { useMemo } from 'react';
 import Masonry from 'react-masonry-css';
 
 import { Skeleton } from '@mantine/core';
-import { useQuery } from '@tanstack/react-query';
 
-import { fetchGames, fetchGenres, fetchTags } from '../../api/rawg-client';
 import { GamesListProps } from '../../types/game';
 import { GameCard } from '../GameCard/GameCard';
 
 import * as classes from './GameList.module.css';
 
 export function GamesList({ param, isLoading }: GamesListProps) {
-  const { data: games } = useQuery({
-    queryKey: ['games'],
-    queryFn: fetchGames,
-  });
-
-  const { data: genres } = useQuery({
-    queryKey: ['genres'],
-    queryFn: fetchGenres,
-  });
-
-  const { data: tags } = useQuery({
-    queryKey: ['tags'],
-    queryFn: fetchTags,
-  });
-
   const skeletonHeigs = useMemo(
     () => Array.from({ length: 15 }, () => Math.random() * 100 + 150),
     []
@@ -66,9 +49,6 @@ export function GamesList({ param, isLoading }: GamesListProps) {
       {param?.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
-      {/* <pre>{JSON.stringify(param, null, 2)}</pre> */}
-      {/* <pre>{JSON.stringify(genres, null, 2)}</pre> */}
-      {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}
     </Masonry>
   );
 }

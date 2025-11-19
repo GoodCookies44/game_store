@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchGenres, fetchTags, sortGames } from '../../api/rawg-client';
 import FilterGroup from '../../components/FilterGroup/FilterGroup';
 import { GamesList } from '../../components/GameList/GameList';
-import PopulationGamesList from '../../components/PopulationGamesList/PopulationGamesList';
+import PopularGamesList from '../../components/PopularGamesList/PopularGamesList';
 import { RootState } from '../../store';
 import { Game, Genre, Tag } from '../../types/game';
 
@@ -34,6 +34,12 @@ export default function HomePage() {
     queryKey: ['games', 'top'],
     queryFn: () =>
       sortGames('ordering=-rating&dates=' + lastDate + ',' + todayDate),
+  });
+
+  const { data: popularGames } = useQuery({
+    queryKey: ['games', 'popular'],
+    queryFn: () =>
+      sortGames('ordering=-added&dates=' + lastDate + ',' + todayDate),
   });
 
   const { data: genres } = useQuery({
@@ -104,10 +110,6 @@ export default function HomePage() {
         </Box>
 
         <Box className={classes.aside}>
-          <PopulationGamesList />
-
-          <Divider my="md" orientation="vertical" />
-
           <FilterGroup
             title="Жанры"
             filterType="genres"
@@ -122,6 +124,13 @@ export default function HomePage() {
             filterType="tags"
             data={tags?.results}
             isLoading={!tags}
+          />
+
+          <Divider my="md" orientation="vertical" />
+
+          <PopularGamesList
+            param={popularGames?.results}
+            isLoading={!popularGames}
           />
         </Box>
       </Group>

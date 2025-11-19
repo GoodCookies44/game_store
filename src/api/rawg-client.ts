@@ -1,4 +1,3 @@
-// Types
 import { GamesResponse, GenresResponse, TagsResponse } from '../types/game';
 
 const API_KEY = process.env.RAWG_API_KEY;
