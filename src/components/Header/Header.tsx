@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import {
   ActionIcon,
@@ -39,7 +40,9 @@ export default function Header() {
       </Box>
 
       <Group className={classes.container} justify="space-between" px="sm">
-        <Title order={3}>GameStore</Title>
+        <Link to={'/'} className={classes.link}>
+          <Title order={3}>GameStore</Title>
+        </Link>
 
         <Group justify="flex-end">
           <Autocomplete

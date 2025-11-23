@@ -12,19 +12,25 @@
 [data-mantine-color-scheme='light'] [class*='mantine-Button-root'] {
   border-color: var(--mantine-color-light_dark-8);
   color: var(--mantine-color-light_dark-8);
-}
 
-[data-mantine-color-scheme='light'] [class*='mantine-Button-root']:hover,
-[data-mantine-color-scheme='light'] [class*='mantine-ActionIcon-root']:hover {
-  background-color: var(--content-bg);
+  &:hover {
+    background-color: var(--content-bg);
 
-  border-color: var(--mantine-color-yellow-7);
-  color: var(--mantine-color-light_dark-8);
+    border-color: var(--mantine-color-yellow-7);
+    color: var(--mantine-color-light_dark-8);
+  }
 }
 
 /* Кнопка смены темы */
 [data-mantine-color-scheme='light'] [class*='mantine-ActionIcon-root'] {
   border-color: var(--mantine-color-light_dark-8);
+
+  &:hover {
+    background-color: var(--content-bg);
+
+    border-color: var(--mantine-color-yellow-7);
+    color: var(--mantine-color-light_dark-8);
+  }
 }
 
 /* Фон инпута и кнопок */
@@ -56,6 +62,12 @@
   background: var(--content-bg);
 
   box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .searh__input input {

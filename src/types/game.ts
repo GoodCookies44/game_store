@@ -1,7 +1,13 @@
+import { InfiniteData } from '@tanstack/react-query';
+
+import { Genre, Tag } from './filter';
+
 export type Game = {
   id: number;
   name: string;
   background_image: string;
+  clip: string;
+  description: string;
   rating: number;
   released: string;
   added: number;
@@ -17,34 +23,20 @@ export type Game = {
 
 export type GamesResponse = {
   count: number;
-  next: string | null;
-  previous: string | null;
+  next: number | null;
+  previous: number | null;
   results: Game[];
 };
 
 export type GamesListProps = {
-  param: Game[] | undefined;
+  data: Game[] | undefined;
   isLoading?: boolean;
 };
 
-export type Genre = {
-  id: number;
-  name: string;
-  games_count: number;
-};
-
-export type GenresResponse = {
-  count: number;
-  results: Genre[];
-};
-
-export type Tag = {
-  id: number;
-  name: string;
-  games_count: number;
-};
-
-export type TagsResponse = {
-  count: number;
-  results: Tag[];
+export type GamesTabProps = {
+  value: string;
+  data: InfiniteData<GamesResponse> | undefined;
+  fetchNextPage: () => void;
+  hasNextPage?: boolean;
+  isFetchingNextPage: boolean;
 };

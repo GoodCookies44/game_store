@@ -1,0 +1,24 @@
+.aside {
+  position: sticky;
+  top: 1rem;
+
+  width: 22rem;
+  max-height: 96vh;
+
+  margin-top: var(--mantine-spacing-md);
+  padding: var(--mantine-spacing-md);
+
+  border-radius: var(--mantine-radius-xs);
+
+  background-color: var(--content-bg);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.aside::-webkit-scrollbar {
+  display: none;
+}

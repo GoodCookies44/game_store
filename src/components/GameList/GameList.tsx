@@ -8,7 +8,7 @@ import { GameCard } from '../GameCard/GameCard';
 
 import * as classes from './GameList.module.css';
 
-export function GamesList({ param, isLoading }: GamesListProps) {
+export function GamesList({ data, isLoading }: GamesListProps) {
   const skeletonHeigs = useMemo(
     () => Array.from({ length: 15 }, () => Math.random() * 100 + 150),
     []
@@ -16,8 +16,8 @@ export function GamesList({ param, isLoading }: GamesListProps) {
 
   const breakpointColumns = {
     default: 3,
-    1024: 3,
-    768: 2,
+    1024: 2,
+    650: 1,
   };
 
   if (isLoading) {
@@ -46,7 +46,7 @@ export function GamesList({ param, isLoading }: GamesListProps) {
       className={classes.mansory_container}
       columnClassName={classes.mansory_column}
     >
-      {param?.map((game) => (
+      {data?.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
     </Masonry>

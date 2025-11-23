@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router';
 
 import { Box, Group, Image, Text, Title } from '@mantine/core';
 import { IconDownload } from '@tabler/icons-react';
@@ -11,8 +12,13 @@ export default function GameItem({ game }: { game: Game }) {
   const rating = (game.rating * 2).toFixed(1);
   const date = game.released.split('-')[0];
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/game/${game.id}`);
+  };
+
   return (
-    <Box className={classes.container}>
+    <Box className={classes.container} onClick={handleClick}>
       <Image
         className={classes.image}
         src={game.background_image}
@@ -24,13 +30,15 @@ export default function GameItem({ game }: { game: Game }) {
           {game.name}
         </Title>
 
-        <Group className={classes.date}>
+        <Group className={classes.subInfo}>
           <Group gap="0.1rem">
             <IconDownload size={10} />
             <Text size="xs">{game.added}</Text>
           </Group>
 
-          <Text size="xs">{date} г.</Text>
+          <Text size="xs" className={classes.date}>
+            {date} г.
+          </Text>
         </Group>
 
         <Text size="xs" className={classes.rating}>

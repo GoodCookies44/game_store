@@ -1,6 +1,14 @@
 .card {
-  width: 15em;
-  margin-bottom: var(--mantine-spacing-xs);
+  width: 14.5em;
+  margin-bottom: var(--mantine-spacing-md);
+
+  opacity: 0.8;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .imageSection {

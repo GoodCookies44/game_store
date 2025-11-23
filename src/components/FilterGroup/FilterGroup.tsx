@@ -5,6 +5,7 @@ import { Box, Chip, Group, Skeleton, Title } from '@mantine/core';
 
 import { RootState } from '../../store';
 import { addFilter, clearFilter } from '../../store/slices/filterSlice';
+import { FilterGroupProps } from '../../types/filter';
 
 import * as classes from './FilterGroup.module.css';
 
@@ -13,11 +14,13 @@ export default function FilterGroup({
   filterType,
   data,
   isLoading,
+  multiple,
 }: FilterGroupProps) {
   const selectedItems = useSelector((state: RootState) =>
     filterType === 'genres' ? state.filters.genres : state.filters.tags
   );
   const dispatch = useDispatch();
+
   if (isLoading) {
     return (
       <Box component="section">
@@ -37,11 +40,13 @@ export default function FilterGroup({
       </Box>
     );
   }
+
   return (
     <Box>
       <Title order={3} mt={0} mb="xs" mr={0} ml={0} className={classes.title}>
         {title}
       </Title>
+
       <Group>
         {data?.map((item) => (
           <Chip

@@ -30,20 +30,23 @@ body {
   );
 }
 
-/* @media (min-width: 576px) and (max-width: 767.98px) {
-  body {
-    padding: 0 5%;
-  }
-}
+@media (min-width: 650px) and (max-width: 1024px) {
+  /* html {
+    padding: 0 10%;
+  } */
 
-@media (min-width: 768px) and (max-width: 991.98px) {
   body {
     padding: 0 10%;
+    font-size: 15px;
   }
 }
 
-@media (min-width: 992px) {
-  body {
-    padding: 0 15%;
+@media (max-width: 649px) {
+  html {
+    padding: 0 1rem;
   }
-*/
+
+  body {
+    font-size: 14px;
+  }
+}

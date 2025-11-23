@@ -1,6 +1,7 @@
 .mansory_container {
   display: flex;
-  width: auto;
+  width: 100%;
+  gap: var(--mantine-spacing-md);
 }
 
 .mansory_column {

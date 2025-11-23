@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  padding: 1rem;
+
+  border-radius: var(--mantine-radius-xs);
+
+  background-color: var(--content-bg);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.button {
+  color: var();
+}
