@@ -42,7 +42,7 @@ export default function TabsPanel(props: GamesTabProps) {
         disabled={!props.hasNextPage || props.isFetchingNextPage}
         loading={props.isFetchingNextPage}
       >
-        Загрузить ещё
+        Show more
       </Button>
     </Tabs.Panel>
   );

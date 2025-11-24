@@ -53,7 +53,7 @@ export default function Aside() {
   return (
     <Box className={classes.aside}>
       <FilterGroup
-        title="Жанры"
+        title="Genres"
         filterType="genres"
         data={genres?.results}
         isLoading={!genres}
@@ -62,10 +62,11 @@ export default function Aside() {
       <Divider my="md" orientation="vertical" />
 
       <FilterGroup
-        title="Категории"
+        title="Tags"
         filterType="tags"
         data={tags?.results}
         isLoading={!tags}
+        multiple
       />
 
       <Divider my="md" orientation="vertical" />

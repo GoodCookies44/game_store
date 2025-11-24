@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import { Box, Group, Skeleton, Title } from '@mantine/core';
 import { useVirtualizer } from '@tanstack/react-virtual';
@@ -39,7 +39,7 @@ export default function PopularGamesList({ data, isLoading }: GamesListProps) {
   return (
     <Box component="section">
       <Title order={3} mt={0} mb="xs" mr={0} ml={0} className={classes.title}>
-        Популярные игры
+        Popular games
       </Title>
       <Box ref={parentRef} className={classes.itemsContainer}>
         <Box

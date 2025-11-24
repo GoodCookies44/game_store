@@ -31,7 +31,7 @@ export function GamesList({ data, isLoading }: GamesListProps) {
           <Skeleton
             key={index}
             height={height}
-            width="15rem"
+            width="14.5rem"
             radius="md"
             mb="xs"
           />

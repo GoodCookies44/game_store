@@ -50,7 +50,7 @@ export default function Header() {
               '--input-bg': 'var(--content-bg)',
             }}
             className="searh__input"
-            placeholder="Поиск игр..."
+            placeholder="Searching for games..."
             leftSection={<IconSearch size={16} />}
             flex={1}
             maw={500}
@@ -71,8 +71,8 @@ export default function Header() {
           </ActionIcon>
 
           <Group visibleFrom="mobile_max">
-            <Button variant="default">Войти</Button>
-            <Button>Регистрация</Button>
+            <Button variant="default">Sign in</Button>
+            <Button>Sign up</Button>
           </Group>
 
           <Box hiddenFrom="mobile_max">
@@ -81,8 +81,8 @@ export default function Header() {
                 <Burger opened={opened} onClick={toggle} />
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item>Войти</Menu.Item>
-                <Menu.Item>Регистрация</Menu.Item>
+                <Menu.Item>Sign in</Menu.Item>
+                <Menu.Item>Sign up</Menu.Item>
               </Menu.Dropdown>
             </Menu>
           </Box>

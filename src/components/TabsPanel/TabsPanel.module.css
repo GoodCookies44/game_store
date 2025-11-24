@@ -13,5 +13,13 @@
 }
 
 .button {
-  color: var();
+  margin: 0 auto;
+
+  color: var(--mantine-color-text);
+  border-color: var(--mantine-color-text);
+
+  &:hover:not(:disabled) {
+    border-color: var(--mantine-color-yellow-7);
+    background-color: var(--content-bg);
+  }
 }

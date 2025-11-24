@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSearchParams } from 'react-router';
 
 import { Tabs } from '@mantine/core';
@@ -6,13 +6,12 @@ import { Tabs } from '@mantine/core';
 import Layout from '../../components/Layout/Layout';
 import TabsPanel from '../../components/TabsPanel/TabsPanel';
 import { useFilteredGamesInfiniteQuery } from '../../hooks/useFilteredGamesInfiniteQuery/useFilteredGamesInfiniteQuery';
-import { useGamesInfiniteQuery } from '../../hooks/useGamesInfiniteQuery/useGamesInfiniteQuery';
 
 import * as classes from './HomePage.module.css';
 
 export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeTab = searchParams.get('tab') || 'top';
+  const activeTab = searchParams.get('tab') || 'all';
 
   const handleTabChange = (value: string | null) => {
     if (value) {
@@ -25,23 +24,12 @@ export default function HomePage() {
   lastYear.setFullYear(lastYear.getFullYear() - 1);
   const lastDate = lastYear.toISOString().split('T')[0];
 
-  const buildSortParam = (
-    baseSort: string,
-    genres: string[],
-    tags: string[]
-  ) => {
-    const params = [baseSort];
-
-    if (genres.length > 0) {
-      params.push(`genres=${genres.join(',')}`);
-    }
-
-    if (tags.length > 0) {
-      params.push(`tags=${tags.join(',')}`);
-    }
-
-    return params.join('&');
-  };
+  const {
+    data: allGames,
+    fetchNextPage: fetchAllGames,
+    hasNextPage: hasAllGamesNextPage,
+    isFetchingNextPage: isAllGamesFetching,
+  } = useFilteredGamesInfiniteQuery('all', '');
 
   const {
     data: topGames,
@@ -75,17 +63,26 @@ export default function HomePage() {
       <Tabs
         value={activeTab}
         onChange={handleTabChange}
-        defaultValue="top"
-        w="100%"
+        defaultValue="all"
         component="main"
+        w="100%"
         mt="md"
         bg="var(--body-bg)"
       >
         <Tabs.List mb="xs" className={classes.nav}>
-          <Tabs.Tab value="top">Лучшие</Tabs.Tab>
-          <Tabs.Tab value="new">Новинки</Tabs.Tab>
-          <Tabs.Tab value="updated">Обновления</Tabs.Tab>
+          <Tabs.Tab value="all">All games</Tabs.Tab>
+          <Tabs.Tab value="top">The best</Tabs.Tab>
+          <Tabs.Tab value="new">New games</Tabs.Tab>
+          <Tabs.Tab value="updated">Updated</Tabs.Tab>
         </Tabs.List>
+
+        <TabsPanel
+          value="all"
+          data={allGames}
+          fetchNextPage={fetchAllGames}
+          hasNextPage={hasAllGamesNextPage}
+          isFetchingNextPage={isAllGamesFetching}
+        />
 
         <TabsPanel
           value="top"

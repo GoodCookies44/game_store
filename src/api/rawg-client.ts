@@ -14,7 +14,6 @@ export const fetchGames = async (pageParam = 1): Promise<GamesResponse> => {
 
 export const fetchGameById = async (id: string): Promise<Game> => {
   const response = await fetch(`${BASE_URL}/games/${id}?key=${API_KEY}`);
-  console.log('Game data:', response.json()); // ← посмотрим что приходит
   return response.json();
 };
 

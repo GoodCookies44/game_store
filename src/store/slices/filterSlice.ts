@@ -23,11 +23,24 @@ const filterSlice = createSlice({
         : state.tags.push(action.payload.value);
     },
 
+    removeFilter: (
+      state,
+      action: PayloadAction<{ type: 'genres' | 'tags'; value: string }>
+    ) => {
+      if (action.payload.type === 'genres') {
+        state.genres = state.genres.filter(
+          (item) => item !== action.payload.value
+        );
+      } else {
+        state.tags = state.tags.filter((item) => item !== action.payload.value);
+      }
+    },
+
     clearFilter: (state, action: PayloadAction<'genres' | 'tags'>) => {
       state[action.payload] = [];
     },
   },
 });
 
-export const { addFilter, clearFilter } = filterSlice.actions;
+export const { addFilter, removeFilter, clearFilter } = filterSlice.actions;
 export default filterSlice.reducer;

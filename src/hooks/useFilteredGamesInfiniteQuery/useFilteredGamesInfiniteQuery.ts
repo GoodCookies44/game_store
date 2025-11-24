@@ -18,7 +18,9 @@ export const useFilteredGamesInfiniteQuery = (key: string, param: string) => {
     }
 
     if (selectedTags.length > 0) {
-      params.push(`tags=${selectedTags.join(',')}`);
+      selectedTags.forEach((tag) => {
+        params.push(`tags=${tag}`);
+      });
     }
 
     return params.join('&');

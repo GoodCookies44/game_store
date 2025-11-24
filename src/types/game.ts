@@ -13,10 +13,9 @@ export type Game = {
   added: number;
   genres: Genre[];
   tags: Tag[];
-  platforms: {
+  parent_platforms: {
     platform: {
       id: number;
-      name: string;
     };
   }[];
 };

@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box, Chip, Group, Skeleton, Title } from '@mantine/core';
 
 import { RootState } from '../../store';
-import { addFilter, clearFilter } from '../../store/slices/filterSlice';
+import {
+  addFilter,
+  clearFilter,
+  removeFilter,
+} from '../../store/slices/filterSlice';
 import { FilterGroupProps } from '../../types/filter';
 
 import * as classes from './FilterGroup.module.css';
@@ -52,15 +56,32 @@ export default function FilterGroup({
           <Chip
             className={classes.item}
             key={item.id}
-            checked={selectedItems?.[0] === item.id.toString()}
-            onChange={(checked) =>
-              checked
-                ? (dispatch(clearFilter(filterType)),
+            checked={selectedItems.includes(item.id.toString())}
+            onChange={(checked) => {
+              if (checked) {
+                if (multiple) {
                   dispatch(
                     addFilter({ type: filterType, value: item.id.toString() })
-                  ))
-                : dispatch(clearFilter(filterType))
-            }
+                  );
+                } else {
+                  dispatch(clearFilter(filterType));
+                  dispatch(
+                    addFilter({ type: filterType, value: item.id.toString() })
+                  );
+                }
+              } else {
+                if (multiple) {
+                  dispatch(
+                    removeFilter({
+                      type: filterType,
+                      value: item.id.toString(),
+                    })
+                  );
+                } else {
+                  dispatch(clearFilter(filterType));
+                }
+              }
+            }}
           >
             {item.name}
           </Chip>

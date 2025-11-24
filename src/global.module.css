@@ -31,10 +31,6 @@ body {
 }
 
 @media (min-width: 650px) and (max-width: 1024px) {
-  /* html {
-    padding: 0 10%;
-  } */
-
   body {
     padding: 0 10%;
     font-size: 15px;

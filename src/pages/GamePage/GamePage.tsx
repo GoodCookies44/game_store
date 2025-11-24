@@ -18,7 +18,7 @@ export default function GamePage() {
 
   return (
     <Layout>
-      <div></div>
+      <pre>{JSON.stringify(game, null, 1)}</pre>
     </Layout>
   );
 }
