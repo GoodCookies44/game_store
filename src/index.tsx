@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router';
 
+import '@mantine/carousel/styles.css';
 import '@mantine/core/styles.css';
 import { QueryClientProvider } from '@tanstack/react-query';
 

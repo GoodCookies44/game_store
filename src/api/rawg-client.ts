@@ -40,3 +40,25 @@ export const fetchTags = async (): Promise<TagsResponse> => {
   );
   return response.json();
 };
+
+export const searchGame = async (query: string) => {
+  const response = await fetch(
+    `${BASE_URL}/games?key=${API_KEY}&search=${query}`
+  );
+  const data = await response.json();
+  return data.results;
+};
+
+export const fetchScreenshots = async (gameId: number) => {
+  const response = await fetch(
+    `${BASE_URL}/games/${gameId}/screenshots?key=${API_KEY}`
+  );
+  return response.json();
+};
+
+export const fetchMovies = async (gameId: number) => {
+  const response = await fetch(
+    `${BASE_URL}/games/${gameId}/movies?key=${API_KEY}`
+  );
+  return response.json();
+};

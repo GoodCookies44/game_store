@@ -39,3 +39,8 @@ export type GamesTabProps = {
   hasNextPage?: boolean;
   isFetchingNextPage: boolean;
 };
+
+export type GameScreenshots = {
+  id: number;
+  image: string;
+};

@@ -24,6 +24,22 @@
   padding: var(--mantine-spacing-xs);
 }
 
+.carousel {
+  margin-bottom: 0.5rem;
+}
+
+.carousel :global(.mantine-Carousel-indicators) {
+  position: relative;
+  bottom: -0.4rem;
+}
+
+.carousel :global(.mantine-Carousel-indicator) {
+  background-color: var(--text-second-color);
+}
+
+.carousel :global(.mantine-Carousel-indicator[data-active]) {
+  background-color: var(--primary-color);
+}
 .label {
   line-height: 1;
   font-weight: 600;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 
 import {
   ActionIcon,
@@ -15,12 +15,38 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconMoon, IconSearch, IconSun } from '@tabler/icons-react';
+import { useQuery } from '@tanstack/react-query';
+
+import { searchGame } from '../../api/rawg-client';
+import { Game } from '../../types/game';
+import GameItem from '../GameItem/GameItem';
 
 import * as classes from './Header.module.css';
 
 export default function Header() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [opened, { toggle }] = useDisclosure();
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const { data: games = [] } = useQuery({
+    queryKey: ['game-search', searchQuery],
+    queryFn: () => searchGame(searchQuery),
+  });
+
+  const handleGameSelect = (gameName: string) => {
+    const selectedGame = games.find((game: Game) => game.name === gameName);
+    if (selectedGame) {
+      navigate(`/game/${selectedGame.id}`);
+    }
+  };
+
+  const autocompleteData = games.map((game: Game) => ({
+    value: game.name,
+    game: game,
+    label: game.name,
+  }));
 
   return (
     <Group component="header" justify="center" gap="lg">
@@ -55,6 +81,12 @@ export default function Header() {
             flex={1}
             maw={500}
             mx="xs"
+            data={autocompleteData}
+            value={searchQuery}
+            onChange={setSearchQuery}
+            onOptionSubmit={handleGameSelect}
+            limit={5}
+            renderOption={({ option }) => <GameItem game={option.game} />}
           />
 
           <ActionIcon
