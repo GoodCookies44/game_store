@@ -103,7 +103,7 @@ export default function Header() {
           </ActionIcon>
 
           <Group visibleFrom="mobile_max">
-            <Button variant="default">Sign in</Button>
+            <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
 
@@ -113,7 +113,7 @@ export default function Header() {
                 <Burger opened={opened} onClick={toggle} />
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item>Sign in</Menu.Item>
+                <Menu.Item>Log in</Menu.Item>
                 <Menu.Item>Sign up</Menu.Item>
               </Menu.Dropdown>
             </Menu>

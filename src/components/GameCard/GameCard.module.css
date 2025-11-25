@@ -31,6 +31,8 @@
 .carousel :global(.mantine-Carousel-indicators) {
   position: relative;
   bottom: -0.4rem;
+
+  margin: 0 0.5rem;
 }
 
 .carousel :global(.mantine-Carousel-indicator) {
@@ -40,6 +42,22 @@
 .carousel :global(.mantine-Carousel-indicator[data-active]) {
   background-color: var(--primary-color);
 }
+
+.iconPlay {
+  display: flex;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  padding: 0.5rem;
+
+  border-radius: 50%;
+  background: #000000b3;
+
+  transform: translate(-50%, -50%);
+}
+
 .label {
   line-height: 1;
   font-weight: 600;
@@ -62,6 +80,7 @@
   padding: 0 0.2rem;
 
   color: var(--mantine-color-text);
+  background-color: var(--content-bg-dark);
 
   border: 1px solid var(--content-bg-dark);
   border-radius: 0.2rem;

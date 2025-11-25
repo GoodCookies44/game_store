@@ -1,7 +1,7 @@
 import { FetchContext, GenresResponse, TagsResponse } from '../types/filter';
 import { Game, GamesResponse } from '../types/game';
 
-const API_KEY = process.env.RAWG_API_KEY;
+const API_KEY = process.env.RAWG_API_KEY2;
 const BASE_URL = 'https://api.rawg.io/api';
 const PAGES = 40;
 
