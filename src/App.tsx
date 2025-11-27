@@ -5,9 +5,11 @@ import Header from './components/Header/Header';
 import GamePage from './pages/GamePage/GamePage';
 import HomePage from './pages/HomePage/HomePage';
 
+import * as classes from './global.module.css';
+
 function App() {
   return (
-    <div>
+    <div className={classes.container}>
       <Header />
       <Routes>
         <Route index element={<HomePage />} />

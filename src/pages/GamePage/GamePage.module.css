@@ -1,0 +1,10 @@
+.container {
+  margin: 1rem 0;
+  padding: 1rem;
+
+  border-radius: var(--mantine-radius-xs);
+
+  background-color: var(--content-bg);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}

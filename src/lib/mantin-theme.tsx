@@ -116,7 +116,7 @@ const theme = createTheme({
 
     TextInput: TextInput.extend({
       defaultProps: {
-        radius: 'md',
+        radius: 'xs',
       },
     }),
 

@@ -22,7 +22,7 @@ export default function PopularGamesList({ data, isLoading }: GamesListProps) {
     return (
       <Box component="section">
         <Title order={3} mt={0} mb="xs" mr={0} ml={0} className={classes.title}>
-          Популярные игры
+          Popular games
         </Title>
         <Group className={classes.itemsContainer}>
           {Array.from({ length: 5 }).map((_, index) => (

@@ -19,6 +19,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { searchGame } from '../../api/rawg-client';
 import { Game } from '../../types/game';
+import AuthModal from '../AuthModal/AuthModal';
 import GameItem from '../GameItem/GameItem';
 
 import * as classes from './Header.module.css';
@@ -26,6 +27,19 @@ import * as classes from './Header.module.css';
 export default function Header() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [opened, { toggle }] = useDisclosure();
+
+  const [authModalOpened, setAuthModalOpened] = useState(false);
+  const [activeTab, setActiveTab] = useState<string | null>('login');
+
+  const openLogin = () => {
+    setActiveTab('login');
+    setAuthModalOpened(true);
+  };
+
+  const openRegister = () => {
+    setActiveTab('register');
+    setAuthModalOpened(true);
+  };
 
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
@@ -103,8 +117,10 @@ export default function Header() {
           </ActionIcon>
 
           <Group visibleFrom="mobile_max">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="default" onClick={openLogin}>
+              Sign in
+            </Button>
+            <Button onClick={openRegister}>Sign up</Button>
           </Group>
 
           <Box hiddenFrom="mobile_max">
@@ -113,13 +129,20 @@ export default function Header() {
                 <Burger opened={opened} onClick={toggle} />
               </Menu.Target>
               <Menu.Dropdown>
-                <Menu.Item>Log in</Menu.Item>
-                <Menu.Item>Sign up</Menu.Item>
+                <Menu.Item onClick={openLogin}>Sign in</Menu.Item>
+                <Menu.Item onClick={openRegister}>Sign up</Menu.Item>
               </Menu.Dropdown>
             </Menu>
           </Box>
         </Group>
       </Group>
+
+      <AuthModal
+        opened={authModalOpened}
+        onClose={() => setAuthModalOpened(false)}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
     </Group>
   );
 }

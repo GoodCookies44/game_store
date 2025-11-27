@@ -1,0 +1,48 @@
+.madalSectiom,
+.modalBody {
+  background-color: var(--content-bg-dark);
+}
+
+.modalBody {
+  padding: 0 1rem 1rem;
+
+  border-radius: 0 0 var(--mantine-radius-xs) var(--mantine-radius-xs);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.modalBody > [data-variant='default'] {
+  background-color: var(--content-bg-dark);
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 0.5rem;
+
+  border-radius: var(--mantine-radius-xs);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
+
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+
+  background-color: var(--content-bg);
+
+  border-radius: var(--mantine-radius-xs);
+
+  box-shadow: var(--mantine-shadow-center_sm);
+}

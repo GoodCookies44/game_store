@@ -49,7 +49,7 @@ export const searchGame = async (query: string) => {
   return data.results;
 };
 
-export const fetchScreenshots = async (gameId: number) => {
+export const fetchScreenshots = async (gameId: number | undefined) => {
   const response = await fetch(
     `${BASE_URL}/games/${gameId}/screenshots?key=${API_KEY}`
   );

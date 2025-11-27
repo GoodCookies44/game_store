@@ -16,16 +16,18 @@
   --mantine-color-card: var(--content-bg);
 }
 
-.gamesList {
+/* .gamesList {
   row-gap: var(--mantine-spacing-md);
-}
+} */
 
-body {
+.container {
   max-width: 1130px;
   min-width: 320px;
 
   margin: 0 auto;
+}
 
+body {
   background: light-dark(
     var(--mantine-color-light_dark-3),
     var(--mantine-color-light_dark-9)
